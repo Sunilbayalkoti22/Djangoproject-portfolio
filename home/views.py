@@ -3,10 +3,17 @@ from .models import *
 
 # Create your views here.
 def home(request):
-    return render(request,'index.html')
+    views = {}
+    views['reviews'] = Review.objects.all()
+    views['facts'] = Fact.objects.all()
+    return render(request,'index.html', views)
 
 def about(request):
-    return render(request,'about.html')
+    views = {}
+    views['reviews'] = Review.objects.all()
+    views['qualifications'] = Qualification.objects.all()
+
+    return render(request,'about.html', views)
 
 def blog_home(request):
     return render(request,'blog-home.html')
@@ -15,6 +22,9 @@ def blog_single(request):
     return render(request,'blog-single.html')
 
 def contact(request):
+    views = {}
+    views['inform'] = Info.objects.all()
+
     if request.method == "POST":
         my_name = request.POST['name']
         my_email = request.POST['email']
@@ -27,18 +37,24 @@ def contact(request):
             message = my_message
         )
         data.save()
-        message = {"msg": "The message is sent. Thank You "}
-        return render(request, 'contact.html', message)
-    return render(request,'contact.html')
+        views['message'] = "The message is sent. Thank You "
+
+        return render(request, 'contact.html',views )
+    return render(request,'contact.html', views)
 
 def elements(request):
     return render(request,'elements.html')
 
 def price(request):
-    return render(request,'price.html')
+    views = {}
+    views['myplan'] = Myplan.objects.all()
+
+    return render(request,'price.html', views)
 
 def services(request):
-    return render(request,'services.html')
+    views = {}
+    views['facts'] = Fact.objects.all()
+    return render(request,'services.html', views)
 
 def portfolio(request):
     return render(request,'portfolio.html')

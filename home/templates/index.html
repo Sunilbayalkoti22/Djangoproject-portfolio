@@ -118,22 +118,13 @@
 			<section class="facts-area section-gap" id="facts-area">
 				<div class="container">				
 					<div class="row">
+						{% for fact in facts %}
 						<div class="col-lg-3 col-md-6 single-fact">
-							<h1 class="counter">2536</h1>
-							<p>Projects Completed</p>
+							<h1 class="counter">{{fact.num}}</h1>
+							<p>{{fact.name}}</p>
 						</div>
-						<div class="col-lg-3 col-md-6 single-fact">
-							<h1 class="counter">6784</h1>
-							<p>Happy Clients</p>
-						</div>
-						<div class="col-lg-3 col-md-6 single-fact">
-							<h1 class="counter">2239</h1>
-							<p>Cups of Coffee</p>
-						</div>	
-						<div class="col-lg-3 col-md-6 single-fact">
-							<h1 class="counter">435</h1>
-							<p>Real Professionals</p>
-						</div>												
+						{% endfor %}
+
 					</div>
 				</div>	
 			</section>
@@ -286,31 +277,21 @@
 		            </div>
 		            <div class="row">
 		                <div class="active-testimonial">
+							{% for review in reviews %}
 		                    <div class="single-testimonial item d-flex flex-row">
 		                        <div class="thumb">
-		                            <img class="img-fluid" src="{% static 'img/elements/user1.png' %}" alt="">
+		                            <img class="img-fluid" src="{{review.image}}" height="100" width="100" alt="">
 		                        </div>
 		                        <div class="desc">
 		                            <p>
-		                                Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills, the bigger the payoff you.		     
+		                               {{review.review}}
 		                            </p>
-		                            <h4>Harriet Maxwell</h4>
-		                            <p>CEO at Google</p>
+		                            <h4>{{review.name}}</h4>
+		                            <p> <strong>{{review.post}}</strong></p>
 		                        </div>
 		                    </div>
-		                    <div class="single-testimonial item d-flex flex-row">
-		                        <div class="thumb">
-		                            <img class="img-fluid" src="{% static 'img/elements/user2.png' %}" alt="">
-		                        </div>
-		                        <div class="desc">
-		                            <p>
-		                                A purpose is the eternal condition for success. Every former smoker can tell you just how hard it is to stop smoking cigarettes. However.
-		                            </p>
-		                            <h4>Carolyn Craig</h4>
-		                            <p>CEO at Facebook</p>
-		                        </div>
-		                    </div>
-		                </div>
+		                	{% endfor %}
+						</div>
 		            </div>
 		        </div>
 		    </section>

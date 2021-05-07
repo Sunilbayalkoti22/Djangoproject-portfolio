@@ -94,51 +94,53 @@
                 </div>
             </div>				
 			  <ul>
+				  {% for study in qualifications %}
 			    <li>
 			      <div class="content">
 			        <h4>
-			          <time>Masters in Graphics & Fine Arts</time>
+			          <time>{{study.name}}</time>
 			        </h4>
-			        <p><b>Session:</b> 2010-11</p>
-			        <p><b>Result:</b> 3.78 (In the Scale of 4.00)</p>
+			        <p><b>Session: &nbsp </b>{{study.data}}</p>
+			        <p><b>Result: &nbsp </b>{{study.result}}</p>
 			      </div>
 			    </li>
-			    <li>
-			      <div class="content">
-			      	<img class="img-fluid mx-auto d-block mb-30" src="% static 'img/about/c-logo.png' %}" alt="">
-			        <h4>
-			          <time>Creative Content Developer</time>
-			        </h4>
-			        <p>July 2015 to Present</p>
-			      </div>
-			    </li>
-			    <li>
-			      <div class="content">
-			        <h4>
-			          <time>Bachelor in Graphics & UI/UX</time>
-			        </h4>
-			        <p><b>Session:</b> 2006-09</p>
-			        <p><b>Result:</b> 3.40 (In the Scale of 4.00)</p>
-			      </div>
-			    </li>
-			    <li>
-			      <div class="content">
-			      	<img class="img-fluid mx-auto d-block mb-30" src="% static 'img/about/c-logo.png' %}" alt="">
-			        <h4>
-			          <time>Senior UI/UX Designer</time>
-			        </h4>
-			        <p>July 2015 to Present</p>
-			      </div>
-			    </li>
-			    <li>
-			      <div class="content">
-			        <h4>
-			          <time>Diploma in Fine Arts & Printing</time>
-			        </h4>
-			        <p><b>Session:</b> 2003-06</p>
-			        <p><b>Result:</b> 4.94 (In the Scale of 5.00)</p>
-			      </div>
-			    </li>
+				  {% endfor %}
+<!--			    <li>-->
+<!--			      <div class="content">-->
+<!--			      	<img class="img-fluid mx-auto d-block mb-30" src="% static 'img/about/c-logo.png' %}" alt="">-->
+<!--			        <h4>-->
+<!--			          <time>Creative Content Developer</time>-->
+<!--			        </h4>-->
+<!--			        <p>July 2015 to Present</p>-->
+<!--			      </div>-->
+<!--			    </li>-->
+<!--			    <li>-->
+<!--			      <div class="content">-->
+<!--			        <h4>-->
+<!--			          <time>Bachelor in Graphics & UI/UX</time>-->
+<!--			        </h4>-->
+<!--			        <p><b>Session:</b> 2006-09</p>-->
+<!--			        <p><b>Result:</b> 3.40 (In the Scale of 4.00)</p>-->
+<!--			      </div>-->
+<!--			    </li>-->
+<!--			    <li>-->
+<!--			      <div class="content">-->
+<!--			      	<img class="img-fluid mx-auto d-block mb-30" src="% static 'img/about/c-logo.png' %}" alt="">-->
+<!--			        <h4>-->
+<!--			          <time>Senior UI/UX Designer</time>-->
+<!--			        </h4>-->
+<!--			        <p>July 2015 to Present</p>-->
+<!--			      </div>-->
+<!--			    </li>-->
+<!--			    <li>-->
+<!--			      <div class="content">-->
+<!--			        <h4>-->
+<!--			          <time>Diploma in Fine Arts & Printing</time>-->
+<!--			        </h4>-->
+<!--			        <p><b>Session:</b> 2003-06</p>-->
+<!--			        <p><b>Result:</b> 4.94 (In the Scale of 5.00)</p>-->
+<!--			      </div>-->
+<!--			    </li>-->
 			  </ul>
 			</section>		
 
@@ -158,30 +160,20 @@
 		            </div>
 		            <div class="row">
 		                <div class="active-testimonial">
+							{% for review in reviews %}
 		                    <div class="single-testimonial item d-flex flex-row">
 		                        <div class="thumb">
-		                            <img class="img-fluid" src="% static 'img/elements/user1.png' %}" alt="">
+		                            <img class="img-fluid" src="{{review.image}}" height="120" width="120" alt="">
 		                        </div>
 		                        <div class="desc">
 		                            <p>
-		                                Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills, the bigger the payoff you.		     
+		                                {{review.review}}
 		                            </p>
-		                            <h4>Harriet Maxwell</h4>
-		                            <p>CEO at Google</p>
+		                            <h4>{{review.name}}</h4>
+		                            <p>{{review.post}}</p>
 		                        </div>
 		                    </div>
-		                    <div class="single-testimonial item d-flex flex-row">
-		                        <div class="thumb">
-		                            <img class="img-fluid" src="% static 'img/elements/user2.png' %}" alt="">
-		                        </div>
-		                        <div class="desc">
-		                            <p>
-		                                A purpose is the eternal condition for success. Every former smoker can tell you just how hard it is to stop smoking cigarettes. However.
-		                            </p>
-		                            <h4>Carolyn Craig</h4>
-		                            <p>CEO at Facebook</p>
-		                        </div>
-		                    </div>
+		                    {% endfor %}
 		                </div>
 		            </div>
 		        </div>
